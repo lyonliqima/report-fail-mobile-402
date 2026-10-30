@@ -404,6 +404,91 @@
     }
     .on { background: var(--carbon); color: #fff; border: 0; }
     .off { background: rgba(25,25,25,0.05); color: var(--seal); border-color: var(--pearl); }
+    .checklist__tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 0 16px 12px; }
+    .checklist__tools .filters { padding: 0; }
+    .collapse {
+      border: 0;
+      background: transparent;
+      color: var(--pool);
+      font-size: 14px;
+      line-height: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+    }
+    .collapse img { width: 20px; height: 20px; }
+    .group { padding: 16px 16px 0; border-top: 1px solid var(--pearl); }
+    .group__head { display: flex; align-items: flex-start; gap: 8px; }
+    .group__chev { width: 12px; height: 12px; margin-top: 4px; flex: none; }
+    .group__title { flex: 1; min-width: 0; }
+    .group__title b { display: block; font-size: 16px; font-weight: 600; line-height: 20px; }
+    .group__meta { margin-top: 2px; color: var(--seal); font-size: 12px; line-height: 16px; }
+    .group__meta .hot { color: var(--cherry-900); }
+    .mark {
+      flex: none;
+      min-width: 48px;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .mark--fail { background: var(--cherry); color: #fff; }
+    .mark--pass { background: var(--kiwi); color: #fff; }
+    .mark--fail-soft { background: var(--cherry-200); color: var(--cherry-900); }
+    .mark--pass-soft { background: var(--kiwi-200); color: var(--kiwi-900); }
+    .test { padding: 12px 0 12px 20px; border-bottom: 1px solid var(--pearl); }
+    .test:last-child { border-bottom: 0; }
+    .test__row { display: flex; align-items: flex-start; gap: 8px; }
+    .test__name { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; }
+    .products {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--pool-100);
+      color: var(--pool-900);
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .products img { width: 12px; height: 12px; }
+    .excluded {
+      border: 1px solid var(--seal);
+      background: var(--mist);
+      color: var(--seal);
+      border-radius: 12px;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .shot { position: relative; display: block; }
+    .thumbs .shot .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      aspect-ratio: auto;
+      border: 0;
+      transform: translate(-50%, -50%);
+    }
+    .qty {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 12px;
+      margin-top: 8px;
+      padding: 12px;
+      background: var(--cloud);
+      border-radius: 12px;
+    }
+    .qty p { margin: 0; }
+    .qty .k { display: block; color: var(--seal); font-size: 12px; line-height: 16px; }
+    .qty .v { display: block; margin-top: 2px; font-size: 12px; line-height: 16px; }
+    .qty .wide { grid-column: 1 / -1; }
     .defect { padding: 14px 16px; border-top: 1px solid var(--pearl); }
     .defect__top { display: flex; gap: 8px; align-items: center; }
     .defect__top b { font-size: 14px; line-height: 20px; }
@@ -626,6 +711,205 @@
           <p class="comment">Comment from the inspector if added</p>
           <div class="thumbs"><img src="assets/d5.png" alt=""></div>
         </article>
+      </section>
+
+      <section class="section">
+        <div class="section__head">
+          <div class="section__title">
+            <div>
+              <h2>Checklists and tests</h2>
+              <div class="sub">1 of 5 checklists failed</div>
+            </div>
+            <span class="score fail">Fail</span>
+          </div>
+        </div>
+        <div class="checklist__tools">
+          <div class="filters">
+            <button class="on">All tests</button>
+            <span class="off">Failed only (2)</span>
+          </div>
+          <button class="collapse" type="button"><img src="assets/ic-x.svg" alt="">Collapse all</button>
+        </div>
+
+        <div class="group">
+          <div class="group__head">
+            <img class="group__chev" src="assets/ic-group.svg" alt="">
+            <div class="group__title">
+              <b>Product Specifications - SL</b>
+              <div class="group__meta">6 tests · <span class="hot">2 failed</span></div>
+            </div>
+            <span class="mark mark--fail">Fail</span>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Product Description <span class="products"><img src="assets/ic-qty.svg" alt="">2 products</span></div>
+              <span class="mark mark--fail-soft">Fail</span>
+            </div>
+            <p class="comment">The product name on the client PO sheet does not match the product name on the inner pack ( Factory provided client approved mail, there is subject only mentioned January delivery concern, accordingly mentioned NOT OK )</p>
+            <div class="thumbs">
+              <img src="assets/c-p5.png" alt="">
+              <img src="assets/c-p6.png" alt="">
+              <img src="assets/c-p6.png" alt="">
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Approval Sample</div>
+              <span class="mark mark--fail-soft">Fail</span>
+            </div>
+            <p class="comment">Comment from the inspector if added</p>
+            <div class="thumbs">
+              <img src="assets/c-p2.png" alt="">
+              <img src="assets/c-p3.png" alt="">
+              <img src="assets/c-p4.png" alt="">
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Product Artwork <span class="excluded">Excluded</span></div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+            <div class="thumbs">
+              <span class="shot"><img src="assets/c-p7.png" alt=""><img class="play" src="assets/ic-play.svg" alt=""></span>
+              <img src="assets/c-p2.png" alt="">
+              <img src="assets/c-p8.png" alt="">
+              <img src="assets/c-p9.png" alt="">
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Quantity Finished &amp; Unpacked (%) <span class="products"><img src="assets/ic-qty.svg" alt="">2 products</span></div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+            <p class="comment">Factory offered quantity 3470 pcs against booked quantity 4000 pcs.<br>Shortage qty - 530 pcs<br>Percentage - 86.75%<br>Total cartons - 36<br>Selected cartons - 15</p>
+            <div class="qty">
+              <p><span class="k">Item/Reference/SKU</span><span class="v">BO-BBR-6918M</span></p>
+              <p><span class="k">Quantity Ordered</span><span class="v">4000 pcs</span></p>
+              <p><span class="k">Quantity Ready &amp; Packed</span><span class="v">3470 pcs</span></p>
+              <p><span class="k">Cartons Available</span><span class="v">36</span></p>
+              <p class="wide"><span class="k">Number of pieces per cartons</span><span class="v">Depend on the cartons</span></p>
+              <p><span class="k">Quantity Inspected</span><span class="v">3470 pcs</span></p>
+              <p><span class="k">Number of Cartons Inspected</span><span class="v">11200 pcs</span></p>
+            </div>
+            <div class="thumbs"><img src="assets/c-p0.png" alt=""></div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group__head">
+            <img class="group__chev" src="assets/ic-group.svg" alt="">
+            <div class="group__title">
+              <b>SKIMS - Quantity</b>
+              <div class="group__meta">3 tests</div>
+            </div>
+            <span class="mark mark--pass">Pass</span>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Available Quantity Check</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+            <div class="thumbs">
+              <img src="assets/c-p1.png" alt="">
+              <img src="assets/c-p1.png" alt="">
+              <img src="assets/c-p2.png" alt="">
+              <img src="assets/c-p3.png" alt="">
+              <img src="assets/c-p4.png" alt="">
+              <img src="assets/c-p0.png" alt="">
+              <img src="assets/c-p0.png" alt="">
+              <img src="assets/c-p0.png" alt="">
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Quantity Finished &amp; Packed (%)</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Quantity Finished &amp; Unpacked (%)</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group__head">
+            <img class="group__chev" src="assets/ic-group.svg" alt="">
+            <div class="group__title">
+              <b>Boxers and brief</b>
+              <div class="group__meta">4 tests</div>
+            </div>
+            <span class="mark mark--pass">Pass</span>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+            <p class="comment">Comment from the inspector if added</p>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group__head">
+            <img class="group__chev" src="assets/ic-group.svg" alt="">
+            <div class="group__title">
+              <b>Factory Review</b>
+              <div class="group__meta">3 tests</div>
+            </div>
+            <span class="mark mark--pass">Pass</span>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+          <div class="test">
+            <div class="test__row">
+              <div class="test__name">Test name</div>
+              <span class="mark mark--pass-soft">Pass</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
