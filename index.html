@@ -474,19 +474,33 @@
       border: 0;
       transform: translate(-50%, -50%);
     }
-    .qty {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 12px;
+    .qty-table {
       margin-top: 8px;
-      padding: 12px;
-      background: var(--cloud);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       border-radius: 12px;
     }
-    .qty p { margin: 0; }
-    .qty .k { display: block; color: var(--seal); font-size: 12px; line-height: 16px; }
-    .qty .v { display: block; margin-top: 2px; font-size: 12px; line-height: 16px; }
-    .qty .wide { grid-column: 1 / -1; }
+    .qty-table__grid {
+      display: grid;
+      grid-template-columns: 124px 116px 132px 106px 148px 126px 120px;
+      gap: 12px;
+      min-width: min-content;
+      padding: 12px 16px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .qty-table__head {
+      background: var(--mist);
+      color: var(--seal);
+      border-radius: 12px 12px 0 0;
+    }
+    .qty-table__body {
+      background: var(--cloud);
+      color: var(--carbon);
+      border-radius: 0 0 12px 12px;
+    }
+    .qty-table__head span,
+    .qty-table__body span { word-break: break-word; }
     .defect { padding: 14px 16px; border-top: 1px solid var(--pearl); }
     .defect__top { display: flex; gap: 8px; align-items: center; }
     .defect__top b { font-size: 14px; line-height: 20px; }
@@ -779,14 +793,25 @@
               <span class="mark mark--pass-soft">Pass</span>
             </div>
             <p class="comment">Factory offered quantity 3470 pcs against booked quantity 4000 pcs.<br>Shortage qty - 530 pcs<br>Percentage - 86.75%<br>Total cartons - 36<br>Selected cartons - 15</p>
-            <div class="qty">
-              <p><span class="k">Item/Reference/SKU</span><span class="v">BO-BBR-6918M</span></p>
-              <p><span class="k">Quantity Ordered</span><span class="v">4000 pcs</span></p>
-              <p><span class="k">Quantity Ready &amp; Packed</span><span class="v">3470 pcs</span></p>
-              <p><span class="k">Cartons Available</span><span class="v">36</span></p>
-              <p class="wide"><span class="k">Number of pieces per cartons</span><span class="v">Depend on the cartons</span></p>
-              <p><span class="k">Quantity Inspected</span><span class="v">3470 pcs</span></p>
-              <p><span class="k">Number of Cartons Inspected</span><span class="v">11200 pcs</span></p>
+            <div class="qty-table">
+              <div class="qty-table__grid qty-table__head">
+                <span>Item/Reference/SKU</span>
+                <span>Quantity Ordered</span>
+                <span>Quantity Ready &amp; Packed</span>
+                <span>Cartons Available</span>
+                <span>Number of pieces per cartons</span>
+                <span>Quantity Inspected</span>
+                <span>Number of Cartons Inspected</span>
+              </div>
+              <div class="qty-table__grid qty-table__body">
+                <span>BO-BBR-6918M</span>
+                <span>4000 pcs</span>
+                <span>3470 pcs</span>
+                <span>36</span>
+                <span>Depend on the cartons</span>
+                <span>3470 pcs</span>
+                <span>11200 pcs</span>
+              </div>
             </div>
             <div class="thumbs"><img src="assets/c-p0.png" alt=""></div>
           </div>
