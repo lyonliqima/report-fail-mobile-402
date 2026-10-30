@@ -313,8 +313,8 @@
       line-height: 20px;
     }
     .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
-    .thumbs:has(img:nth-child(2):last-child) { grid-template-columns: 1fr 1fr; }
-    .thumbs:has(img:only-child) { grid-template-columns: calc((100% - 16px) / 3); }
+    .thumbs:has(> :nth-child(2):last-child) { grid-template-columns: 1fr 1fr; }
+    .thumbs:has(> :only-child) { grid-template-columns: calc((100% - 16px) / 3); }
     .thumbs img {
       width: 100%;
       aspect-ratio: 1;
