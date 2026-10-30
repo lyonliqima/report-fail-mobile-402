@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=402, initial-scale=1">
+  <title>Report fail — 402</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --app: 402px;
+      --carbon: #191919;
+      --seal: #737373;
+      --pearl: #dedede;
+      --white: #fff;
+      --cloud: #f7f7f7;
+      --mist: #f0f0f0;
+      --pool: #4169e1;
+      --pool-50: #f2f5fd;
+      --pool-200: #d3dcf8;
+      --pool-900: #153184;
+      --cherry: #e5353d;
+      --cherry-100: #fdefef;
+      --cherry-200: #fbdddd;
+      --cherry-600: #c71a21;
+      --cherry-900: #9e141b;
+      --kiwi: #00a876;
+      --kiwi-100: #eaf6f2;
+      --kiwi-200: #ceeae1;
+      --kiwi-900: #006648;
+      --orange: #f58f00;
+      --lemon: #ffca0f;
+      --pool-100: #e6ecfb;
+      --shadow: 0 2px 10px rgba(25, 25, 25, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #eceff3; }
+    body {
+      display: flex;
+      justify-content: center;
+      font-family: Inter, sans-serif;
+      color: var(--carbon);
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { font: inherit; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .app {
+      width: var(--app);
+      max-width: 100%;
+      min-height: 100vh;
+      background: #f3f4f6;
+    }
+
+    .ic { width: 20px; height: 20px; display: block; flex: none; }
+    .ic--12 { width: 12px; height: 12px; }
+    .ic--13 { width: 13px; height: 13px; }
+    .ic--16 { width: 16px; height: 16px; }
+
+    .brand {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 8px 12px;
+      background: var(--white);
+      border-bottom: 1px solid var(--pearl);
+    }
+    .brand img.logo { width: 90px; height: 20px; }
+    .brand__rule { width: 1px; height: 24px; background: var(--pearl); flex: none; }
+    .psi {
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--lemon);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .brand__name {
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .actions { background: var(--white); padding: 8px 12px 10px; }
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tools__links { margin-left: auto; display: flex; align-items: center; }
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      flex: none;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      color: var(--carbon);
+    }
+    .decisions { display: flex; gap: 8px; margin-top: 8px; }
+    .decisions button {
+      flex: 1;
+      min-width: 0;
+      height: 36px;
+      border: 0;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 6px;
+      white-space: nowrap;
+    }
+    .accept { background: var(--kiwi); }
+    .reject { background: var(--cherry); }
+
+    .link {
+      border: 0;
+      background: transparent;
+      color: var(--pool);
+      font-size: 14px;
+      line-height: 20px;
+      height: 36px;
+      padding: 0 6px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .stack { display: flex; flex-direction: column; gap: 12px; padding: 8px 12px 24px; }
+
+    .hero {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .hero__top { display: flex; gap: 12px; }
+    .hero__photo {
+      width: 104px;
+      height: 104px;
+      flex: none;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--mist);
+    }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero h1 {
+      margin: 12px 0 0;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: -0.44px;
+    }
+    .hero__result { display: flex; justify-content: flex-end; margin-top: 10px; }
+    .result {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      background: var(--cherry-100);
+      border-radius: 16px;
+      padding: 4px 12px 2px;
+    }
+    .result small { color: #6b6b73; font-size: 12px; line-height: 16px; }
+    .result strong { color: var(--cherry); font-size: 28px; line-height: 32px; letter-spacing: -0.5px; }
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--pearl);
+    }
+    .meta p { margin: 0; min-width: 0; }
+    .meta p.wide { grid-column: 1 / -1; }
+    .meta .k, .meta .v { display: block; }
+    .meta .k { color: var(--seal); font-size: 12px; line-height: 16px; }
+    .meta .v { margin-top: 2px; font-size: 14px; line-height: 20px; }
+    .meta .v.loc { display: flex; align-items: center; gap: 4px; }
+    .meta a { color: var(--pool); text-decoration: none; }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      text-align: left;
+      border: 0;
+      width: 100%;
+    }
+    .card__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--pearl);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+    .fail { color: var(--cherry); font-weight: 700; }
+    .pass { color: var(--kiwi); font-weight: 700; }
+    .metric { display: flex; align-items: baseline; gap: 6px; margin-top: 12px; }
+    .metric b { font-size: 26px; line-height: 32px; letter-spacing: -0.52px; }
+    .metric span { color: var(--seal); font-size: 14px; }
+    .bar { height: 4px; border-radius: 3px; background: var(--cherry-200); margin-top: 8px; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 10%; background: var(--cherry); border-radius: 3px; }
+    .bar--kiwi { background: var(--kiwi-200); }
+    .bar--kiwi i { width: 30%; background: var(--kiwi); }
+    .aql { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 12px; align-items: center; }
+    .badge {
+      min-width: 36px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cri { background: var(--cherry); }
+    .maj { background: var(--orange); }
+    .min { background: var(--lemon); color: var(--carbon); }
+    .aql em { font-style: normal; font-size: 14px; }
+    .aql em.hot { color: var(--cherry); }
+    .aql em.muted { color: var(--seal); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip { border-radius: 8px; padding: 4px 8px; font-size: 12px; line-height: 16px; }
+    .chip--bad { background: var(--cherry-100); color: var(--cherry-600); }
+    .chip--ok { background: var(--kiwi-100); color: var(--kiwi-900); }
+    .chip--na { background: var(--cloud); color: var(--seal); }
+
+    .panel {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .panel__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 16px;
+    }
+    .panel__titles { display: flex; flex-direction: row; align-items: center; gap: 8px; min-width: 0; }
+    .panel__head h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: -0.4px;
+    }
+    .pill {
+      flex: none;
+      background: rgba(228, 0, 43, 0.1);
+      color: var(--cherry);
+      border-radius: 17px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22px;
+      white-space: nowrap;
+    }
+    .votes { display: flex; align-items: center; flex: none; }
+    .votes button { width: 32px; height: 32px; border: 0; background: transparent; display: grid; place-items: center; border-radius: 8px; }
+    .take { padding: 0 16px 14px; border-top: 1px solid var(--pearl); }
+    .take__row { display: flex; gap: 8px; padding-top: 12px; }
+    .num {
+      flex: none;
+      height: 20px;
+      padding: 0 8px;
+      border-radius: 12px;
+      background: var(--pearl);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22px;
+      line-height: 20px;
+    }
+    .take p { margin: 0; font-size: 14px; line-height: 20px; }
+    .note {
+      margin: 10px 0 0 0;
+      background: var(--pool-50);
+      border: 1px solid var(--pool-200);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--pool-900);
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .thumbs:has(img:nth-child(2):last-child) { grid-template-columns: 1fr 1fr; }
+    .thumbs:has(img:only-child) { grid-template-columns: calc((100% - 16px) / 3); }
+    .thumbs img {
+      width: 100%;
+      aspect-ratio: 1;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--pearl);
+    }
+    .more {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--pool);
+      font-size: 16px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .collapsed {
+      width: 100%;
+      border: 0;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      letter-spacing: -0.4px;
+      text-align: left;
+    }
+
+    .section { background: var(--white); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+    .section__head { padding: 16px 16px 8px; }
+    .section__title { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    .section__title h2 { margin: 0; font-size: 20px; font-weight: 400; letter-spacing: -0.4px; line-height: 26px; }
+    .section__title .sub { display: block; margin-top: 2px; color: var(--seal); font-size: 13px; font-weight: 400; letter-spacing: 0; }
+    .section__title .score { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; }
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 16px 0; }
+    .tile { border-radius: 12px; padding: 10px; }
+    .tile--bad { background: var(--cherry-100); }
+    .tile--ok { background: var(--kiwi-100); }
+    .tile--plain { background: var(--cloud); }
+    .tile .label { font-size: 12px; font-weight: 600; }
+    .tile .big { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; margin-top: 2px; }
+    .tile .big > div { min-width: 0; }
+    .tile .big b { font-size: 20px; letter-spacing: -0.4px; }
+    .tile .big > div span { color: var(--seal); font-size: 12px; }
+    .pct {
+      flex: none;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .pct--bad { background: var(--cherry-200); color: var(--cherry-900); }
+    .pct--ok { background: var(--kiwi); color: #fff; }
+    .pct--seal {
+      background: #fff;
+      color: var(--carbon);
+      box-shadow: inset 0 0 0 1px var(--pearl);
+    }
+    .tiles--measure { align-items: stretch; }
+    .tiles--measure .tile {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .tiles--measure .label { line-height: 16px; }
+    .tiles--measure .big { margin-top: 0; }
+    .tiles--measure .bar { margin-top: 2px; }
+    .bar--seal { background: #fff; }
+    .bar--seal i { width: 5%; background: var(--seal); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+    .filters button, .filters span {
+      flex: none;
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 14px;
+      line-height: 20px;
+      border: 1px solid transparent;
+    }
+    .on { background: var(--carbon); color: #fff; border: 0; }
+    .off { background: rgba(25,25,25,0.05); color: var(--seal); border-color: var(--pearl); }
+    .defect { padding: 14px 16px; border-top: 1px solid var(--pearl); }
+    .defect__top { display: flex; gap: 8px; align-items: center; }
+    .defect__top b { font-size: 14px; line-height: 20px; }
+    .defect__name { margin: 4px 0 0; font-size: 14px; line-height: 20px; }
+    .found {
+      margin-left: auto;
+      flex: none;
+      background: var(--pearl);
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .comment { margin: 6px 0 0; color: var(--seal); font-size: 12px; line-height: 16px; }
+
+    .file {
+      margin: 12px 16px 16px;
+      border: 1px solid var(--pearl);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .file b { display: block; font-size: 12px; }
+    .file span { color: var(--seal); font-size: 12px; }
+
+    .rating {
+      background: var(--pool-50);
+      border: 1px solid var(--pool-200);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .rating h2 { margin: 0; font-size: 18px; font-weight: 400; letter-spacing: -0.36px; }
+    .rating p { margin: 8px 0 16px; color: var(--seal); font-size: 14px; }
+    .stars { display: block; width: 132px; height: auto; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="brand">
+      <img class="logo" src="assets/qima.svg" alt="QIMA" width="90" height="20">
+      <span class="brand__rule"></span>
+      <span class="psi">PSI</span>
+      <span class="brand__name">3 INCHBOXER BRIEF 3 PACK</span>
+    </header>
+    <div class="actions">
+      <div class="tools">
+        <button class="icon-btn" aria-label="Share"><img class="ic" src="assets/ic-1.svg" alt=""></button>
+        <button class="icon-btn" aria-label="Send"><img class="ic" src="assets/ic-2.svg" alt=""></button>
+        <button class="icon-btn" aria-label="Comment"><img class="ic" src="assets/ic-3.svg" alt=""></button>
+        <div class="tools__links">
+          <button class="link">Details</button>
+          <button class="link">All photos (213)</button>
+        </div>
+      </div>
+      <div class="decisions">
+        <button class="accept"><img class="ic" src="assets/ic-accept.svg" alt="">Accept</button>
+        <button class="reject"><img class="ic" src="assets/ic-reject.svg" alt="">Reject</button>
+      </div>
+    </div>
+
+    <div class="stack">
+      <section class="hero">
+        <div class="hero__top">
+          <div class="hero__photo"><img src="assets/product.png" alt="3 inch boxer brief 3 pack"></div>
+        </div>
+        <h1>3 INCHBOXER BRIEF 3 PACK</h1>
+        <div class="hero__result"><div class="result"><small>Overall result</small><strong>Fail</strong></div></div>
+        <div class="meta">
+          <p><span class="k">Inspection ref</span><span class="v">Q2614889886</span></p>
+          <p><span class="k">P.O. No.</span><span class="v">PO10863885</span></p>
+          <p><span class="k">Inspection Date</span><span class="v">26-Jun-2026</span></p>
+          <p><span class="k">SKU</span><span class="v">BO-BBR-6918M</span></p>
+          <p><span class="k">Supplier</span><span class="v">Linea Aqua Pvt Ltd.</span></p>
+          <p><span class="k">Performed In</span><span class="v loc"><img class="ic ic--16" src="assets/ic-pin.svg" alt=""><a href="https://maps.app.goo.gl/vbiVoPF9jTYrg2qr8">Colombo</a></span></p>
+          <p class="wide"><span class="k">Qty. ordered / produced</span><span class="v">10 000 / 9 000 pieces</span></p>
+        </div>
+      </section>
+
+      <article class="card">
+        <div class="card__head"><span>Workmanship</span><span class="fail">Fail</span></div>
+        <div class="metric"><b>12</b><span>defective pieces of 120</span></div>
+        <div class="bar"><i></i></div>
+        <div class="aql">
+          <span class="badge cri">CRI</span><em class="hot">1</em>
+          <span class="badge maj">MAJ</span><em class="muted">2</em>
+          <span class="badge min">MIN</span><em class="muted">3</em>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__head"><span>Checklists &amp; tests</span><span class="fail">Fail</span></div>
+        <div class="chips">
+          <span class="chip chip--bad">Product Specifications - SL</span>
+          <span class="chip chip--ok">Quantity</span>
+          <span class="chip chip--ok">Default Tests</span>
+          <span class="chip chip--ok">Boxers and brief</span>
+          <span class="chip chip--ok">Factory Review</span>
+          <span class="chip chip--na">Specific AQL Requirement</span>
+          <span class="chip chip--na">Factory Feedback</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__head"><span>Measurements</span><span class="pass">Pass</span></div>
+        <div class="metric"><b>1 of 3</b><span>samples out of tolerance</span></div>
+        <div class="bar bar--kiwi"><i></i></div>
+        <p style="margin:10px 0 0;color:#737373;font-size:14px;">Total sample size: 32</p>
+      </article>
+
+      <section class="panel">
+        <div class="panel__head">
+          <div class="panel__titles">
+            <h2>Key Takeaways</h2>
+            <span class="pill">NONCONFORMITIES</span>
+          </div>
+          <div class="votes">
+            <button type="button" aria-label="Collapse"><img class="ic" src="assets/ic-up.svg" alt=""></button>
+          </div>
+        </div>
+        <article class="take">
+          <div class="take__row"><span class="num">01</span><p>The product name on the client PO sheet does not match the product name on the inner pack. The factory provided a client-approved email, but it only addresses the January delivery concern and does not resolve the mismatch. Status: NOT OK.</p></div>
+          <div class="note">Specifications evolve over time. To ensure the factory and our inspector are aligned with your expectations, specifications must be kept updated at all times.</div>
+          <div class="thumbs">
+            <img src="assets/kt1.png" alt="">
+            <img src="assets/kt2.png" alt="">
+            <img src="assets/kt3.png" alt="">
+          </div>
+        </article>
+        <article class="take">
+          <div class="take__row"><span class="num">02</span><p>The factory did not meet the client-required carton dimensions during inspection (70 cm x 33 cm x 47 cm, L x H x W). The factory sent an email stating new dimensions are being used, but there is no confirmation of client approval for these revised dimensions.</p></div>
+          <div class="note">With warehouses and logistics companies strengthening their requirements on carton sizes and weight, it is critical to ensure the actual weight, dimensions and shipping marks of the cartons are within the acceptable range to avoid penalties and delays on your shipment.</div>
+          <div class="thumbs">
+            <img src="assets/d4.png" alt="">
+            <img src="assets/d1.png" alt="">
+            <img src="assets/d5.png" alt="">
+          </div>
+        </article>
+        <article class="take">
+          <div class="take__row"><span class="num">03</span><p>Incorrect color sequence and folding direction were found; garments were placed in the inner box in the wrong orientation.</p></div>
+          <div class="note">Develop and enforce standardized packing procedures across all teams. Create detailed instructions and checklists to guide the packing process. Use visual aids like diagrams or photos to illustrate proper packing methods and layouts.</div>
+          <div class="thumbs">
+            <img src="assets/d5.png" alt="">
+            <img src="assets/d3.png" alt="">
+            <img src="assets/d2.png" alt="">
+          </div>
+        </article>
+        <button class="more">View other findings <img class="ic" src="assets/ic-down.svg" alt=""></button>
+      </section>
+
+      <button class="collapsed">Inspectors remarks <img class="ic" src="assets/ic-down.svg" alt=""></button>
+
+      <section class="section">
+        <div class="section__head">
+          <div class="section__title">
+            <div>
+              <h2>Workmanship</h2>
+              <span class="sub">Sample size: 120</span>
+            </div>
+            <span class="score fail">Fail</span>
+          </div>
+        </div>
+        <div class="tiles">
+          <div class="tile tile--bad">
+            <div class="label">Defective pieces</div>
+            <div class="big"><div><b>12</b> <span>of 120</span></div><span class="pct pct--bad">10%</span></div>
+            <div class="bar"><i></i></div>
+          </div>
+          <div class="tile tile--bad">
+            <span class="badge cri">CRITICAL</span>
+            <div class="big"><div><b style="color:#e5353d">1</b> <span>of 0 allowed</span></div></div>
+          </div>
+          <div class="tile tile--plain">
+            <span class="badge maj">MAJOR</span>
+            <div class="big"><div><b>2</b> <span>of 7 allowed</span></div></div>
+          </div>
+          <div class="tile tile--plain">
+            <span class="badge min">MINOR</span>
+            <div class="big"><div><b>3</b> <span>of 10 allowed</span></div></div>
+          </div>
+        </div>
+        <article class="defect">
+          <div class="defect__top">
+            <span class="badge cri">CRI</span>
+            <b>FB006</b>
+            <span class="found">1 FOUND</span>
+          </div>
+          <p class="defect__name">Significant/Obvious Slub, snags, foreign yarn/fiber, Pilling</p>
+          <p class="comment">Snagging at top body</p>
+          <div class="thumbs">
+            <img src="assets/d1.png" alt="">
+            <img src="assets/d2.png" alt="">
+            <img src="assets/d3.png" alt="">
+          </div>
+        </article>
+        <article class="defect">
+          <div class="defect__top">
+            <span class="badge maj">MAJ</span>
+            <b>CVS002</b>
+            <span class="found">3 FOUND</span>
+          </div>
+          <p class="defect__name">Pressing marks</p>
+          <p class="comment">Pressing bed mark at top body</p>
+          <div class="thumbs">
+            <img src="assets/d4.png" alt="">
+            <img src="assets/d2.png" alt="">
+          </div>
+        </article>
+        <article class="defect">
+          <div class="defect__top">
+            <span class="badge min">MIN</span>
+            <b>FB006</b>
+            <span class="found">2 FOUND</span>
+          </div>
+          <p class="defect__name">Slanted Logos</p>
+          <p class="comment">Comment from the inspector if added</p>
+          <div class="thumbs"><img src="assets/d5.png" alt=""></div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section__head">
+          <div class="section__title">
+            <div>
+              <h2>Measurements</h2>
+              <div class="sub">Result based on samples out of tolerance</div>
+            </div>
+            <span class="score pass">Pass</span>
+          </div>
+        </div>
+        <div class="tiles tiles--measure">
+          <div class="tile tile--ok">
+            <div class="label">Samples out of tolerance</div>
+            <div class="big"><div><b>1</b> <span>of 3</span></div><span class="pct pct--ok">10%</span></div>
+            <div class="bar bar--kiwi"><i></i></div>
+            <p class="comment">Total sample size: 32</p>
+          </div>
+          <div class="tile tile--plain">
+            <div class="label">POMs out of tolerance</div>
+            <div class="big"><div><b>3</b> <span>of 60</span></div><span class="pct pct--seal">5%</span></div>
+            <div class="bar bar--seal"><i></i></div>
+          </div>
+        </div>
+        <div class="filters">
+          <button class="on">All POMs</button>
+          <span class="off">POMs out of tolerance</span>
+        </div>
+        <div class="file">
+          <img class="ic" src="assets/ic-file.svg" alt="">
+          <div><b>PDF Document</b><span>BO-BBR-6918M MMT.xlsx</span></div>
+        </div>
+      </section>
+
+      <section class="rating">
+        <h2>How satisfied are you with this report?</h2>
+        <p>Your feedback helps us improve</p>
+        <img class="stars" src="assets/stars.svg" alt="5 stars">
+      </section>
+    </div>
+  </main>
+</body>
+</html>
