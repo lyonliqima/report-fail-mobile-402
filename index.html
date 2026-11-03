@@ -151,35 +151,57 @@
 
     .hero {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 16px;
       box-shadow: var(--shadow);
     }
-    .hero__top { display: flex; gap: 12px; }
+    .hero__head { display: flex; gap: 16px; align-items: flex-start; }
     .hero__photo {
-      width: 104px;
-      height: 104px;
+      width: 120px;
+      height: 120px;
       flex: none;
       border-radius: 12px;
       overflow: hidden;
       background: var(--mist);
     }
     .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero h1 { margin: 8px 0 0; font-size: 22px; font-weight: 400; line-height: 28px; letter-spacing: -0.44px; }
-    .refs { display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--seal); font-size: 12px; line-height: 16px; }
-    .refs span { display: inline-flex; align-items: center; gap: 4px; }
-    .refs b { color: var(--carbon); font-weight: 600; }
-    .hero__result { display: flex; justify-content: center; margin-top: 14px; }
+    .hero__ids { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+    .ref-line { margin: 0; }
+    .ref-line__k { display: block; color: var(--seal); font-size: 12px; line-height: 16px; }
+    .ref-line__v {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      word-break: break-all;
+    }
+    .hero h1 {
+      margin: 14px 0 0;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: -0.44px;
+    }
+    .hero__result {
+      margin-top: 14px;
+      padding: 10px 16px 12px;
+      border-radius: 12px;
+      background: var(--cherry-100);
+      text-align: center;
+    }
     .result {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      background: #fff;
-      border-radius: 16px;
-      padding: 8px 16px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
     }
     .result small { color: var(--cherry-900); font-size: 11px; font-weight: 600; letter-spacing: 0.22px; text-transform: uppercase; }
-    .result strong { color: var(--cherry); font-size: 32px; line-height: 36px; letter-spacing: -0.64px; }
+    .result strong { color: var(--cherry); font-size: 37px; font-weight: 700; line-height: 40px; letter-spacing: -0.74px; }
     .meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -560,13 +582,51 @@
     .dl span { padding: 8px 10px; font-size: 14px; line-height: 20px; white-space: nowrap; }
     .dl button { width: 32px; border: 0; background: transparent; display: grid; place-items: center; }
     .v-rule { width: 1px; height: 28px; background: var(--pearl); flex: none; }
-    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 14px; }
-    .facts p { margin: 0; min-width: 0; }
-    .facts .wide { grid-column: 1 / -1; }
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--pearl);
+    }
+    .facts p { margin: 0; min-width: 0; position: relative; }
+    .facts p:not(.wide):nth-child(odd)::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -6px;
+      width: 1px;
+      height: 100%;
+      background: var(--pearl);
+    }
+    .facts .wide { grid-column: 1 / -1; padding-top: 2px; }
     .facts .k, .facts .v { display: block; }
     .facts .k { color: var(--seal); font-size: 12px; line-height: 16px; }
-    .facts .v { margin-top: 2px; display: flex; align-items: center; gap: 4px; font-size: 14px; line-height: 20px; }
-    .more-link { margin-top: 12px; border: 0; background: transparent; color: var(--pool); font-size: 14px; padding: 0; }
+    .facts .v {
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+    .facts .v a { font-weight: 600; }
+    .facts .wide .v { font-weight: 400; }
+    .more-link {
+      display: block;
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      background: transparent;
+      color: var(--pool);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      padding: 4px 0 0;
+      text-align: left;
+    }
     .summary { background: #fff; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
     .summary__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 52px; padding: 12px 16px; }
     .summary__head--fail { background: var(--cherry-100); }
@@ -625,23 +685,27 @@
 
     <div class="stack">
       <section class="hero">
-        <div class="hero__top">
+        <div class="hero__head">
           <div class="hero__photo"><img src="assets/product.png" alt="3 inch boxer brief 3 pack"></div>
-          <div>
-            <div class="refs">
-              <span>Inspection ref: <b>Q2614889886</b><img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
-              <span>P.O. No.: <b>PO10863885</b><img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
-            </div>
-            <h1>3 INCHBOXER BRIEF 3 PACK</h1>
+          <div class="hero__ids">
+            <p class="ref-line">
+              <span class="ref-line__k">Inspection ref</span>
+              <span class="ref-line__v">Q2614889886<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
+            </p>
+            <p class="ref-line">
+              <span class="ref-line__k">P.O. No.</span>
+              <span class="ref-line__v">PO10863885<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
+            </p>
           </div>
         </div>
+        <h1>3 INCHBOXER BRIEF 3 PACK</h1>
         <div class="hero__result"><div class="result"><small>Overall result</small><strong>Fail</strong></div></div>
         <div class="facts">
           <p><span class="k">Inspection Date</span><span class="v">26-Jun-2026<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
           <p><span class="k">SKU</span><span class="v">BO-BBR-6918M<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
           <p><span class="k">Supplier</span><span class="v">Linea Aqua Pvt Ltd.<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
           <p><span class="k">Performed In</span><span class="v"><img class="ic ic--16" src="assets/ic-pin.svg" alt=""><a href="https://maps.app.goo.gl/vbiVoPF9jTYrg2qr8">Colombo</a></span></p>
-          <p class="wide"><span class="k">Qty. - Ordered / produced</span><span class="v">10 000 / 9 000 pieces</span></p>
+          <p class="wide"><span class="k">Qty. ordered / produced</span><span class="v">10 000 / 9 000 pieces</span></p>
         </div>
         <button class="more-link" type="button">View all details</button>
       </section>
