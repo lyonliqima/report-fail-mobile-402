@@ -165,24 +165,21 @@
       background: var(--mist);
     }
     .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero h1 {
-      margin: 12px 0 0;
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 28px;
-      letter-spacing: -0.44px;
-    }
-    .hero__result { display: flex; justify-content: flex-end; margin-top: 10px; }
+    .hero h1 { margin: 8px 0 0; font-size: 22px; font-weight: 400; line-height: 28px; letter-spacing: -0.44px; }
+    .refs { display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--seal); font-size: 12px; line-height: 16px; }
+    .refs span { display: inline-flex; align-items: center; gap: 4px; }
+    .refs b { color: var(--carbon); font-weight: 600; }
+    .hero__result { display: flex; justify-content: center; margin-top: 14px; }
     .result {
       display: inline-flex;
       flex-direction: column;
-      align-items: flex-end;
-      background: var(--cherry-100);
+      align-items: center;
+      background: #fff;
       border-radius: 16px;
-      padding: 4px 12px 2px;
+      padding: 8px 16px;
     }
-    .result small { color: #6b6b73; font-size: 12px; line-height: 16px; }
-    .result strong { color: var(--cherry); font-size: 28px; line-height: 32px; letter-spacing: -0.5px; }
+    .result small { color: var(--cherry-900); font-size: 11px; font-weight: 600; letter-spacing: 0.22px; text-transform: uppercase; }
+    .result strong { color: var(--cherry); font-size: 32px; line-height: 36px; letter-spacing: -0.64px; }
     .meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -227,7 +224,7 @@
     .bar { height: 4px; border-radius: 3px; background: var(--cherry-200); margin-top: 8px; overflow: hidden; }
     .bar i { display: block; height: 100%; width: 10%; background: var(--cherry); border-radius: 3px; }
     .bar--kiwi { background: var(--kiwi-200); }
-    .bar--kiwi i { width: 30%; background: var(--kiwi); }
+    .bar--kiwi i { width: 10%; background: var(--kiwi); }
     .aql { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 12px; align-items: center; }
     .badge {
       min-width: 36px;
@@ -268,13 +265,8 @@
       padding: 16px;
     }
     .panel__titles { display: flex; flex-direction: row; align-items: center; gap: 8px; min-width: 0; }
-    .panel__head h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 26px;
-      letter-spacing: -0.4px;
-    }
+    .panel__head h2 { margin: 0; font-size: 20px; font-weight: 400; letter-spacing: -0.4px; }
+    .findings { margin: 0 16px; font-size: 16px; font-weight: 600; line-height: 24px; }
     .pill {
       flex: none;
       background: rgba(228, 0, 43, 0.1);
@@ -351,10 +343,27 @@
 
     .section { background: var(--white); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
     .section__head { padding: 16px 16px 8px; }
-    .section__title { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    .section__title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .section__title .sub { margin-left: auto; }
     .section__title h2 { margin: 0; font-size: 20px; font-weight: 400; letter-spacing: -0.4px; line-height: 26px; }
     .section__title .sub { display: block; margin-top: 2px; color: var(--seal); font-size: 13px; font-weight: 400; letter-spacing: 0; }
-    .section__title .score { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; }
+    .section__title .score {
+      flex: none;
+      min-width: 64px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .score.fail { background: var(--cherry); }
+    .score.pass { background: var(--kiwi); }
     .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 16px 0; }
     .tile { border-radius: 12px; padding: 10px; }
     .tile--bad { background: var(--cherry-100); }
@@ -375,11 +384,7 @@
     }
     .pct--bad { background: var(--cherry-200); color: var(--cherry-900); }
     .pct--ok { background: var(--kiwi); color: #fff; }
-    .pct--seal {
-      background: #fff;
-      color: var(--carbon);
-      box-shadow: inset 0 0 0 1px var(--pearl);
-    }
+    .pct--seal { background: var(--seal); color: #fff; }
     .tiles--measure { align-items: stretch; }
     .tiles--measure .tile {
       display: flex;
@@ -540,29 +545,84 @@
     .rating h2 { margin: 0; font-size: 18px; font-weight: 400; letter-spacing: -0.36px; }
     .rating p { margin: 8px 0 16px; color: var(--seal); font-size: 14px; }
     .stars { display: block; width: 132px; height: auto; margin: 0 auto; }
+
+    .brand__id { min-width: 0; display: flex; flex-direction: column; }
+    .brand__ref { display: inline-flex; align-items: center; gap: 4px; color: var(--seal); font-size: 12px; line-height: 16px; font-weight: 400; }
+    .dl {
+      display: flex;
+      margin-left: auto;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--pool-100);
+      color: var(--pool);
+      height: 36px;
+    }
+    .dl span { padding: 8px 10px; font-size: 14px; line-height: 20px; white-space: nowrap; }
+    .dl button { width: 32px; border: 0; background: transparent; display: grid; place-items: center; }
+    .v-rule { width: 1px; height: 28px; background: var(--pearl); flex: none; }
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 14px; }
+    .facts p { margin: 0; min-width: 0; }
+    .facts .wide { grid-column: 1 / -1; }
+    .facts .k, .facts .v { display: block; }
+    .facts .k { color: var(--seal); font-size: 12px; line-height: 16px; }
+    .facts .v { margin-top: 2px; display: flex; align-items: center; gap: 4px; font-size: 14px; line-height: 20px; }
+    .more-link { margin-top: 12px; border: 0; background: transparent; color: var(--pool); font-size: 14px; padding: 0; }
+    .summary { background: #fff; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+    .summary__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 52px; padding: 12px 16px; }
+    .summary__head--fail { background: var(--cherry-100); }
+    .summary__head--pass { background: var(--kiwi-100); }
+    .summary__head b { font-size: 16px; line-height: 20px; }
+    .pill-lg { min-width: 64px; height: 26px; padding: 0 8px; border-radius: 14px; color: #fff; font-size: 15px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; }
+    .pill-lg--fail { background: var(--cherry); }
+    .pill-lg--pass { background: var(--kiwi); }
+    .summary__body { padding: 16px; }
+    .summary__body .chips { margin-top: 0; }
+    .wm { display: flex; gap: 12px; }
+    .wm__size { width: 88px; flex: none; text-align: center; }
+    .wm__size small { display: block; color: var(--seal); font-size: 11px; font-weight: 600; letter-spacing: 0.22px; text-transform: uppercase; }
+    .wm__size b { display: block; margin-top: 4px; font-size: 22px; line-height: 28px; letter-spacing: -0.44px; }
+    .wm__size span { color: var(--seal); font-size: 14px; }
+    .wm__defects { flex: 1; min-width: 0; padding-left: 12px; border-left: 1px solid var(--pearl); text-align: center; }
+    .wm__row { display: flex; }
+    .wm__col { flex: 1; }
+    .wm__col em { display: block; margin-top: 4px; font-style: normal; font-size: 14px; color: var(--seal); }
+    .wm__col em b { font-size: 22px; line-height: 28px; letter-spacing: -0.44px; color: var(--carbon); }
+    .wm__col em b.hot { color: var(--cherry); }
+    .wm__hint { margin: 4px 0 0; color: var(--seal); font-size: 14px; }
+    .chip img { width: 10px; height: 10px; display: inline-block; }
+    .chip { display: inline-flex; align-items: center; gap: 2px; }
+    .track { position: relative; height: 10px; margin-top: 8px; }
+    .track .bar { margin-top: 3px; }
+    .tick { position: absolute; top: 0; width: 2px; height: 10px; border-radius: 2px; background: var(--carbon); transform: translateX(-1px); }
+    .track-meta { display: flex; justify-content: space-between; margin-top: 8px; color: var(--seal); font-size: 14px; }
+    .note { display: flex; gap: 8px; align-items: flex-start; }
+    .note p { flex: 1; margin: 0; }
+    .note .votes { flex: none; }
   </style>
 </head>
 <body>
   <main class="app">
     <header class="brand">
+      <button class="icon-btn" type="button" aria-label="Back"><img class="ic" src="assets/ic-back.svg" alt=""></button>
       <img class="logo" src="assets/qima.svg" alt="QIMA" width="90" height="20">
       <span class="brand__rule"></span>
       <span class="psi">PSI</span>
-      <span class="brand__name">3 INCHBOXER BRIEF 3 PACK</span>
+      <span class="brand__id">
+        <span class="brand__name">3 INCHBOXER BRIEF 3 PACK</span>
+        <span class="brand__ref">Q2614889886<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
+      </span>
     </header>
     <div class="actions">
       <div class="tools">
         <button class="icon-btn" aria-label="Share"><img class="ic" src="assets/ic-1.svg" alt=""></button>
         <button class="icon-btn" aria-label="Send"><img class="ic" src="assets/ic-2.svg" alt=""></button>
         <button class="icon-btn" aria-label="Comment"><img class="ic" src="assets/ic-3.svg" alt=""></button>
-        <div class="tools__links">
-          <button class="link">Details</button>
-          <button class="link">All photos (213)</button>
-        </div>
+        <span class="v-rule"></span>
+        <div class="dl"><span>Download PDF</span><button type="button" aria-label="More downloads"><img class="ic" src="assets/ic-chev.svg" alt=""></button></div>
       </div>
       <div class="decisions">
-        <button class="accept"><img class="ic" src="assets/ic-accept.svg" alt="">Accept</button>
-        <button class="reject"><img class="ic" src="assets/ic-reject.svg" alt="">Reject</button>
+        <button class="accept"><img class="ic" src="assets/ic-accept.svg" alt="">Accept Shipment</button>
+        <button class="reject"><img class="ic" src="assets/ic-reject.svg" alt="">Reject Shipment</button>
       </div>
     </div>
 
@@ -570,64 +630,78 @@
       <section class="hero">
         <div class="hero__top">
           <div class="hero__photo"><img src="assets/product.png" alt="3 inch boxer brief 3 pack"></div>
+          <div>
+            <div class="refs">
+              <span>Inspection ref: <b>Q2614889886</b><img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
+              <span>P.O. No.: <b>PO10863885</b><img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span>
+            </div>
+            <h1>3 INCHBOXER BRIEF 3 PACK</h1>
+          </div>
         </div>
-        <h1>3 INCHBOXER BRIEF 3 PACK</h1>
         <div class="hero__result"><div class="result"><small>Overall result</small><strong>Fail</strong></div></div>
-        <div class="meta">
-          <p><span class="k">Inspection ref</span><span class="v">Q2614889886</span></p>
-          <p><span class="k">P.O. No.</span><span class="v">PO10863885</span></p>
-          <p><span class="k">Inspection Date</span><span class="v">26-Jun-2026</span></p>
-          <p><span class="k">SKU</span><span class="v">BO-BBR-6918M</span></p>
-          <p><span class="k">Supplier</span><span class="v">Linea Aqua Pvt Ltd.</span></p>
-          <p><span class="k">Performed In</span><span class="v loc"><img class="ic ic--16" src="assets/ic-pin.svg" alt=""><a href="https://maps.app.goo.gl/vbiVoPF9jTYrg2qr8">Colombo</a></span></p>
-          <p class="wide"><span class="k">Qty. ordered / produced</span><span class="v">10 000 / 9 000 pieces</span></p>
+        <div class="facts">
+          <p><span class="k">Inspection Date</span><span class="v">26-Jun-2026<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
+          <p><span class="k">SKU</span><span class="v">BO-BBR-6918M<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
+          <p><span class="k">Supplier</span><span class="v">Linea Aqua Pvt Ltd.<img class="ic ic--12" src="assets/ic-copy.svg" alt=""></span></p>
+          <p><span class="k">Performed In</span><span class="v"><img class="ic ic--16" src="assets/ic-pin.svg" alt=""><a href="https://maps.app.goo.gl/vbiVoPF9jTYrg2qr8">Colombo</a></span></p>
+          <p class="wide"><span class="k">Qty. - Ordered / produced</span><span class="v">10 000 / 9 000 pieces</span></p>
         </div>
+        <button class="more-link" type="button">View all details</button>
       </section>
 
-      <article class="card">
-        <div class="card__head"><span>Workmanship</span><span class="fail">Fail</span></div>
-        <div class="metric"><b>12</b><span>defective pieces of 120</span></div>
-        <div class="bar"><i></i></div>
-        <div class="aql">
-          <span class="badge cri">CRI</span><em class="hot">1</em>
-          <span class="badge maj">MAJ</span><em class="muted">2</em>
-          <span class="badge min">MIN</span><em class="muted">3</em>
+      <article class="summary">
+        <div class="summary__head summary__head--fail"><b>Workmanship</b><span class="pill-lg pill-lg--fail">Fail</span></div>
+        <div class="summary__body">
+          <div class="wm">
+            <div class="wm__size"><small>Sample size</small><b>200</b><span>pieces</span></div>
+            <div class="wm__defects">
+              <div class="wm__row">
+                <div class="wm__col"><span class="badge cri">CRI</span><em><b class="hot">1</b>/0</em></div>
+                <div class="wm__col"><span class="badge maj">MAJ</span><em><b>2</b>/3</em></div>
+                <div class="wm__col"><span class="badge min">MIN</span><em><b>3</b>/7</em></div>
+              </div>
+              <p class="wm__hint">Defects found / allowed</p>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card__head"><span>Checklists &amp; tests</span><span class="fail">Fail</span></div>
-        <div class="chips">
-          <span class="chip chip--bad">Product Specifications - SL</span>
-          <span class="chip chip--ok">Quantity</span>
-          <span class="chip chip--ok">Default Tests</span>
-          <span class="chip chip--ok">Boxers and brief</span>
-          <span class="chip chip--ok">Factory Review</span>
-          <span class="chip chip--na">Specific AQL Requirement</span>
-          <span class="chip chip--na">Factory Feedback</span>
+      <article class="summary">
+        <div class="summary__head summary__head--fail"><b>Checklists &amp; tests</b><span class="pill-lg pill-lg--fail">Fail</span></div>
+        <div class="summary__body">
+          <div class="chips">
+            <span class="chip chip--bad">Product Specifications - SL<img src="assets/ic-chip-bad.svg" alt=""></span>
+            <span class="chip chip--ok">Quantity<img src="assets/ic-chip-ok.svg" alt=""></span>
+            <span class="chip chip--ok">Default Tests<img src="assets/ic-chip-ok.svg" alt=""></span>
+            <span class="chip chip--ok">Boxers and brief<img src="assets/ic-chip-ok.svg" alt=""></span>
+            <span class="chip chip--ok">Factory Review<img src="assets/ic-chip-ok.svg" alt=""></span>
+            <span class="chip chip--na">Specific AQL Requirement<img src="assets/ic-chip-na.svg" alt=""></span>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card__head"><span>Measurements</span><span class="pass">Pass</span></div>
-        <div class="metric"><b>1 of 3</b><span>samples out of tolerance</span></div>
-        <div class="bar bar--kiwi"><i></i></div>
-        <p style="margin:10px 0 0;color:#737373;font-size:14px;">Total sample size: 32</p>
+      <article class="summary">
+        <div class="summary__head summary__head--pass"><b>Measurements</b><span class="pill-lg pill-lg--pass">Pass</span></div>
+        <div class="summary__body">
+          <div class="metric"><b>1 of 10</b><span>samples out of tolerance</span></div>
+          <div class="track"><div class="bar bar--kiwi"><i></i></div><span class="tick" style="left:10%"></span></div>
+          <div class="track-meta"><span>Accepts up to 3</span><span>Sample size: 10</span></div>
+        </div>
       </article>
 
       <section class="panel">
         <div class="panel__head">
-          <div class="panel__titles">
-            <h2>Key Takeaways</h2>
-            <span class="pill">NONCONFORMITIES</span>
-          </div>
+          <h2>Key Takeaways</h2>
           <div class="votes">
+            <button type="button" aria-label="Helpful"><img class="ic" src="assets/ic-like.svg" alt=""></button>
+            <button type="button" aria-label="Not helpful"><img class="ic" src="assets/ic-dislike.svg" alt=""></button>
             <button type="button" aria-label="Collapse"><img class="ic" src="assets/ic-up.svg" alt=""></button>
           </div>
         </div>
+        <h3 class="findings">Non-conformances</h3>
         <article class="take">
           <div class="take__row"><span class="num">01</span><p>The product name on the client PO sheet does not match the product name on the inner pack. The factory provided a client-approved email, but it only addresses the January delivery concern and does not resolve the mismatch. Status: NOT OK.</p></div>
-          <div class="note">Specifications evolve over time. To ensure the factory and our inspector are aligned with your expectations, specifications must be kept updated at all times.</div>
+          <div class="note"><p>Specifications evolve over time. To ensure the factory and our inspector are aligned with your expectations, specifications must be kept updated at all times.</p><span class="votes"><button type="button" aria-label="Helpful"><img class="ic" src="assets/ic-like.svg" alt=""></button><button type="button" aria-label="Not helpful"><img class="ic" src="assets/ic-dislike.svg" alt=""></button></span></div>
           <div class="thumbs">
             <img src="assets/kt1.png" alt="">
             <img src="assets/kt2.png" alt="">
@@ -636,7 +710,7 @@
         </article>
         <article class="take">
           <div class="take__row"><span class="num">02</span><p>The factory did not meet the client-required carton dimensions during inspection (70 cm x 33 cm x 47 cm, L x H x W). The factory sent an email stating new dimensions are being used, but there is no confirmation of client approval for these revised dimensions.</p></div>
-          <div class="note">With warehouses and logistics companies strengthening their requirements on carton sizes and weight, it is critical to ensure the actual weight, dimensions and shipping marks of the cartons are within the acceptable range to avoid penalties and delays on your shipment.</div>
+          <div class="note"><p>With warehouses and logistics companies strengthening their requirements on carton sizes and weight, it is critical to ensure the actual weight, dimensions and shipping marks of the cartons are within the acceptable range to avoid penalties and delays on your shipment.</p><span class="votes"><button type="button" aria-label="Helpful"><img class="ic" src="assets/ic-like.svg" alt=""></button><button type="button" aria-label="Not helpful"><img class="ic" src="assets/ic-dislike.svg" alt=""></button></span></div>
           <div class="thumbs">
             <img src="assets/d4.png" alt="">
             <img src="assets/d1.png" alt="">
@@ -645,7 +719,7 @@
         </article>
         <article class="take">
           <div class="take__row"><span class="num">03</span><p>Incorrect color sequence and folding direction were found; garments were placed in the inner box in the wrong orientation.</p></div>
-          <div class="note">Develop and enforce standardized packing procedures across all teams. Create detailed instructions and checklists to guide the packing process. Use visual aids like diagrams or photos to illustrate proper packing methods and layouts.</div>
+          <div class="note"><p>Develop and enforce standardized packing procedures across all teams. Create detailed instructions and checklists to guide the packing process. Use visual aids like diagrams or photos to illustrate proper packing methods and layouts.</p><span class="votes"><button type="button" aria-label="Helpful"><img class="ic" src="assets/ic-like.svg" alt=""></button><button type="button" aria-label="Not helpful"><img class="ic" src="assets/ic-dislike.svg" alt=""></button></span></div>
           <div class="thumbs">
             <img src="assets/d5.png" alt="">
             <img src="assets/d3.png" alt="">
@@ -662,28 +736,28 @@
           <div class="section__title">
             <div>
               <h2>Workmanship</h2>
-              <span class="sub">Sample size: 120</span>
             </div>
             <span class="score fail">Fail</span>
+            <span class="sub">Sample size: 120</span>
           </div>
         </div>
         <div class="tiles">
-          <div class="tile tile--bad">
-            <div class="label">Defective pieces</div>
-            <div class="big"><div><b>12</b> <span>of 120</span></div><span class="pct pct--bad">10%</span></div>
-            <div class="bar"><i></i></div>
-          </div>
           <div class="tile tile--bad">
             <span class="badge cri">CRITICAL</span>
             <div class="big"><div><b style="color:#e5353d">1</b> <span>of 0 allowed</span></div></div>
           </div>
           <div class="tile tile--plain">
             <span class="badge maj">MAJOR</span>
-            <div class="big"><div><b>2</b> <span>of 7 allowed</span></div></div>
+            <div class="big"><div><b>4</b> <span>of 7 allowed</span></div></div>
           </div>
           <div class="tile tile--plain">
             <span class="badge min">MINOR</span>
-            <div class="big"><div><b>3</b> <span>of 10 allowed</span></div></div>
+            <div class="big"><div><b>7</b> <span>of 10 allowed</span></div></div>
+          </div>
+          <div class="tile tile--bad">
+            <div class="label">Defective pieces</div>
+            <div class="big"><div><b>12</b> <span>of 120</span></div><span class="pct pct--bad">10%</span></div>
+            <div class="bar"><i></i></div>
           </div>
         </div>
         <article class="defect">
@@ -944,9 +1018,9 @@
         <div class="tiles tiles--measure">
           <div class="tile tile--ok">
             <div class="label">Samples out of tolerance</div>
-            <div class="big"><div><b>1</b> <span>of 3</span></div><span class="pct pct--ok">10%</span></div>
-            <div class="bar bar--kiwi"><i></i></div>
-            <p class="comment">Total sample size: 32</p>
+            <div class="big"><div><b>1</b> <span>of 10</span></div><span class="pct pct--ok">10%</span></div>
+            <div class="track"><div class="bar bar--kiwi"><i></i></div><span class="tick" style="left:10%"></span></div>
+            <p class="comment">Accepts up to 3</p>
           </div>
           <div class="tile tile--plain">
             <div class="label">POMs out of tolerance</div>
