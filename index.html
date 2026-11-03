@@ -317,6 +317,9 @@
     }
     .take p { margin: 0; font-size: 14px; line-height: 20px; }
     .note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
       margin: 10px 0 0 0;
       background: var(--pool-50);
       border: 1px solid var(--pool-200);
@@ -326,6 +329,8 @@
       font-size: 14px;
       line-height: 20px;
     }
+    .note__icon { width: 20px; height: 20px; flex: none; }
+    .note p { margin: 0; flex: 1; min-width: 0; }
     .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
     .thumbs:has(> :only-child) { grid-template-columns: calc((100% - 16px) / 3); }
     .thumbs img {
@@ -760,7 +765,7 @@
         <h3 class="findings">Non-conformances</h3>
         <article class="take">
           <div class="take__row"><span class="num">01</span><p>The product name on the client PO sheet does not match the product name on the inner pack. The factory provided a client-approved email, but it only addresses the January delivery concern and does not resolve the mismatch. Status: NOT OK.</p></div>
-          <div class="note"><p>Specifications evolve over time. To ensure the factory and our inspector are aligned with your expectations, specifications must be kept updated at all times.</p></div>
+          <div class="note"><img class="note__icon" src="assets/ic-idea.svg" alt=""><p>Specifications evolve over time. To ensure the factory and our inspector are aligned with your expectations, specifications must be kept updated at all times.</p></div>
           <div class="thumbs">
             <img src="assets/kt1.png" alt="">
             <img src="assets/kt2.png" alt="">
@@ -769,7 +774,7 @@
         </article>
         <article class="take">
           <div class="take__row"><span class="num">02</span><p>The factory did not meet the client-required carton dimensions during inspection (70 cm x 33 cm x 47 cm, L x H x W). The factory sent an email stating new dimensions are being used, but there is no confirmation of client approval for these revised dimensions.</p></div>
-          <div class="note"><p>With warehouses and logistics companies strengthening their requirements on carton sizes and weight, it is critical to ensure the actual weight, dimensions and shipping marks of the cartons are within the acceptable range to avoid penalties and delays on your shipment.</p></div>
+          <div class="note"><img class="note__icon" src="assets/ic-idea.svg" alt=""><p>With warehouses and logistics companies strengthening their requirements on carton sizes and weight, it is critical to ensure the actual weight, dimensions and shipping marks of the cartons are within the acceptable range to avoid penalties and delays on your shipment.</p></div>
           <div class="thumbs">
             <img src="assets/d4.png" alt="">
             <img src="assets/d1.png" alt="">
@@ -778,7 +783,7 @@
         </article>
         <article class="take">
           <div class="take__row"><span class="num">03</span><p>Incorrect color sequence and folding direction were found; garments were placed in the inner box in the wrong orientation.</p></div>
-          <div class="note"><p>Develop and enforce standardized packing procedures across all teams. Create detailed instructions and checklists to guide the packing process. Use visual aids like diagrams or photos to illustrate proper packing methods and layouts.</p></div>
+          <div class="note"><img class="note__icon" src="assets/ic-idea.svg" alt=""><p>Develop and enforce standardized packing procedures across all teams. Create detailed instructions and checklists to guide the packing process. Use visual aids like diagrams or photos to illustrate proper packing methods and layouts.</p></div>
           <div class="thumbs">
             <img src="assets/d5.png" alt="">
             <img src="assets/d3.png" alt="">
